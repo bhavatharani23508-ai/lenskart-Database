@@ -31,6 +31,26 @@ SQL>
 SQL> INSERT INTO CUSTOMER_DETAILS VALUES (5,'Priya','priya@gmail.com',8765432109,'Salem');
 
 1 row created.
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (6,'Vignesh','vignesh@gmail.com',9012345678,'Namakkal'); 
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (7,'Keerthana','keerthana@gmail.com',9123456789,'Karur');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (8,'Harish','harish@gmail.com',9234567890,'Kanchipuram');
+
+1 row created.
+
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (9,'Lavanya','lavanya@gmail.com',9345678901,'Cuddalore');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (10,'Pradeep','pradeep@gmail.com',9456789012,'Dindigul');
 
 SQL> 
 SQL> -- READ
@@ -100,6 +120,32 @@ SQL> SELECT * FROM CUSTOMER_DETAILS;
          5 Priya                          priya@gmail.com
 8765432109 Chennai
 
+CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         6 Vignesh                        vignesh@gmail.com
+9012345678 Namakkal
+
+         7 Keerthana                      keerthana@gmail.com
+9123456789 Karur
+
+         8 Harish                         harish@gmail.com
+9234567890 Kanchipuram
+
+
+       CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         9 Lavanya                        lavanya@gmail.com
+9345678901 Cuddalore
+
+        10 Pradeep                        pradeep@gmail.com
+9456789012 Dindigul
+
+
+
 
 SQL> 
 SQL> -- DELETE
@@ -135,6 +181,30 @@ SQL> SELECT * FROM CUSTOMER_DETAILS;
          5 Priya                          priya@gmail.com
 8765432109 Chennai
 
+CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         6 Vignesh                        vignesh@gmail.com
+9012345678 Namakkal
 
-SQL> 
+         7 Keerthana                      keerthana@gmail.com
+9123456789 Karur
+
+         8 Harish                         harish@gmail.com
+9234567890 Kanchipuram
+
+
+       CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         9 Lavanya                        lavanya@gmail.com
+9345678901 Cuddalore
+
+        10 Pradeep                        pradeep@gmail.com
+9456789012 Dindigul
+
+
 SQL> COMMIT;
+commit complete.
