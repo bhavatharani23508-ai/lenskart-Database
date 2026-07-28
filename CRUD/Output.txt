@@ -1,0 +1,140 @@
+SQL> CREATE TABLE CUSTOMER_DETAILS (
+  2      CID NUMBER PRIMARY KEY,
+  3      CNAME VARCHAR2(30) NOT NULL,
+  4      EMAIL VARCHAR2(30) UNIQUE,
+  5      PHONE_NO NUMBER,
+  6      ADDRESS VARCHAR2(50)
+  7  );
+
+Table created.
+
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (1,'Abi','abi@gmail.com',1234567890,'Ramapuram Chennai');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (2,'Anu','anu@gmail.com',9876543210,'Madurai');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (3,'Ravi','ravi@gmail.com',9087654321,'Chengalpattu');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (4,'Karthik','karthik@gmail.com',9876543211,'Coimbatore');
+
+1 row created.
+
+SQL> 
+SQL> INSERT INTO CUSTOMER_DETAILS VALUES (5,'Priya','priya@gmail.com',8765432109,'Salem');
+
+1 row created.
+
+SQL> 
+SQL> -- READ
+SQL> 
+SQL> SELECT * FROM CUSTOMER_DETAILS;
+
+       CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         1 Abi                            abi@gmail.com
+1234567890 Ramapuram Chennai
+
+         2 Anu                            anu@gmail.com
+9876543210 Madurai
+
+         3 Ravi                           ravi@gmail.com
+9087654321 Chengalpattu
+
+
+       CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         4 Karthik                        karthik@gmail.com
+9876543211 Coimbatore
+
+         5 Priya                          priya@gmail.com
+8765432109 Salem
+
+
+SQL> 
+SQL> -- UPDATE
+SQL> 
+SQL> UPDATE CUSTOMER_DETAILS
+  2  SET ADDRESS = 'Chennai'
+  3  WHERE CID = 5;
+
+1 row updated.
+
+SQL> 
+SQL> -- READ AFTER UPDATE
+SQL> 
+SQL> SELECT * FROM CUSTOMER_DETAILS;
+
+       CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         1 Abi                            abi@gmail.com
+1234567890 Ramapuram Chennai
+
+         2 Anu                            anu@gmail.com
+9876543210 Madurai
+
+         3 Ravi                           ravi@gmail.com
+9087654321 Chengalpattu
+
+
+       CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         4 Karthik                        karthik@gmail.com
+9876543211 Coimbatore
+
+         5 Priya                          priya@gmail.com
+8765432109 Chennai
+
+
+SQL> 
+SQL> -- DELETE
+SQL> 
+SQL> DELETE FROM CUSTOMER_DETAILS
+  2  WHERE CID = 4;
+
+1 row deleted.
+
+SQL> 
+SQL> -- READ AFTER DELETE
+SQL> 
+SQL> SELECT * FROM CUSTOMER_DETAILS;
+
+       CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         1 Abi                            abi@gmail.com
+1234567890 Ramapuram Chennai
+
+         2 Anu                            anu@gmail.com
+9876543210 Madurai
+
+         3 Ravi                           ravi@gmail.com
+9087654321 Chengalpattu
+
+
+       CID CNAME                          EMAIL
+---------- ------------------------------ ------------------------------
+  PHONE_NO ADDRESS
+---------- --------------------------------------------------
+         5 Priya                          priya@gmail.com
+8765432109 Chennai
+
+
+SQL> 
+SQL> COMMIT;
