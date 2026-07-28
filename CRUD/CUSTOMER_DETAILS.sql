@@ -15,6 +15,16 @@ INSERT INTO CUSTOMER_DETAILS VALUES (4,'Karthik','karthik@gmail.com',9876543211,
 
 INSERT INTO CUSTOMER_DETAILS VALUES (5,'Priya','priya@gmail.com',8765432109,'Salem');
 
+INSERT INTO CUSTOMER_DETAILS VALUES (6,'Vignesh','vignesh@gmail.com',9012345678,'Namakkal');
+
+INSERT INTO CUSTOMER_DETAILS VALUES (7,'Keerthana','keerthana@gmail.com',9123456789,'Karur');
+
+INSERT INTO CUSTOMER_DETAILS VALUES (8,'Harish','harish@gmail.com',9234567890,'Kanchipuram');
+
+INSERT INTO CUSTOMER_DETAILS VALUES (9,'Lavanya','lavanya@gmail.com',9345678901,'Cuddalore');
+
+INSERT INTO CUSTOMER_DETAILS VALUES (10,'Pradeep','pradeep@gmail.com',9456789012,'Dindigul');
+
 -- READ
 
 SELECT * FROM CUSTOMER_DETAILS;
