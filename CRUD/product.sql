@@ -1,0 +1,44 @@
+CREATE TABLE Product (
+        Product_ID NUMBER PRIMARY KEY,
+        Product_Name VARCHAR2(100) NOT NULL,
+        Brand VARCHAR2(50) NOT NULL,
+        Price NUMBER(10,2) NOT NULL,
+        Stock NUMBER NOT NULL,
+        Category_ID NUMBER,
+        FOREIGN KEY (Category_ID) REFERENCES Category(Category_ID)
+ );
+INSERT INTO Product (Product_ID, Product_Name, Brand, Price, Stock, Category_ID) VALUES (101, 'Air Flex Eyeglasses', 'Lenskart Air', 1500.00, 25, 1);
+
+INSERT INTO Product (Product_ID, Product_Name, Brand, Price, Stock, Category_ID) VALUES (102, 'Classic Round Eyeglasses', 'Vincent Chase', 2000.00, 15, 1);
+
+INSERT INTO Product (Product_ID, Product_Name, Brand, Price, Stock, Category_ID) VALUES (103, 'Polarized Sunglasses', 'Vincent Chase', 1800.00, 20, 2);
+
+INSERT INTO Product (Product_ID, Product_Name, Brand, Price, Stock, Category_ID) VALUES (104, 'Daily Contact Lenses', 'Aqualens', 900.00, 30, 3);
+
+INSERT INTO Product (Product_ID, Product_Name, Brand, Price, Stock, Category_ID) VALUES (105, 'Kids Round Eyeglasses', 'Lenskart', 1200.00, 10, 4);
+SELECT * FROM Product;
+
+UPDATE Product
+SET Price = 1600.00,
+    Stock = 30
+WHERE Product_ID = 101;
+
+SELECT * FROM Product
+WHERE Product_ID = 101;
+
+DELETE FROM Product
+WHERE Product_ID = 105;
+
+SELECT * FROM Product;
+
+SELECT
+       c.Category_Name,
+       p.Product_ID,
+       p.Product_Name,
+       p.Brand,
+       p.Price,
+       p.Stock
+    FROM Category c
+    JOIN Product p
+   ON c.Category_ID = p.Category_ID
+   ORDER BY c.Category_Name;
