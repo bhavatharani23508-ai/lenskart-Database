@@ -1,0 +1,157 @@
+SQL QUERY IMPLEMENTATION FOR E-COMMERCE DATABASE
+
+TASK 1: SELECT, WHERE, ORDER BY AND DISTINCT QUERIES
+
+1.1 DISPLAY ALL PRODUCTS
+SELECT * FROM LenskartProduct;
+
+1.2 SEARCH PRODUCTS BY PRICE
+SELECT Product_ID, Product_Name, Price
+FROM LenskartProduct
+WHERE Price > 1500;
+
+1.3 SORT PRODUCTS BY PRICE
+SELECT Product_ID, Product_Name, Price
+FROM LenskartProduct
+ORDER BY Price ASC;
+
+1.4 DISPLAY UNIQUE PRODUCT CATEGORIES
+SELECT DISTINCT Category
+FROM LenskartProduct;
+
+1.5 SEARCH PRODUCTS BY CATEGORY
+SELECT Product_ID, Product_Name, Brand, Price
+FROM LenskartProduct
+WHERE Category = 'Eyeglasses';
+
+TASK 2: SEARCH PRODUCTS BASED ON PRICE, CATEGORY AND AVAILABILITY
+
+2.1 PRODUCTS PRICED BELOW 1500
+SELECT * 
+FROM LenskartProduct
+WHERE Price < 1500;
+
+2.2 PRODUCTS PRICED BETWEEN 1000 AND 2000
+SELECT *
+FROM LenskartProduct
+WHERE Price BETWEEN 1000 AND 2000;
+
+2.3 SEARCH PRODUCTS BY CATEGORY
+SELECT *
+FROM LenskartProduct
+WHERE Category = 'Eyeglasses';
+
+2.4 DISPLAY AVAILABLE PRODUCTS
+SELECT P.Product_ID, P.Product_Name, I.Stock_Quantity, I.Stock_Status
+FROM LenskartProduct P
+JOIN LenskartInventory I
+ON P.Product_ID = I.Product_ID
+WHERE I.Stock_Status = 'Available';
+
+2.5 DISPLAY UNAVAILABLE PRODUCTS
+SELECT P.Product_ID, P.Product_Name, I.Stock_Quantity, I.Stock_Status
+FROM LenskartProduct P
+JOIN LenskartInventory I
+ON P.Product_ID = I.Product_ID
+WHERE I.Stock_Status = 'Unavailable';
+
+TASK 3: RETRIEVE CUSTOMER AND PRODUCT INFORMATION
+
+3.1 DISPLAY CUSTOMER DETAILS
+SELECT *
+FROM LenskartCustomer;
+
+3.2 DISPLAY CUSTOMER NAMES AND EMAIL ADDRESSES
+SELECT Customer_Name, Email
+FROM LenskartCustomer;
+
+3.3 RETRIEVE CUSTOMERS FROM CHENNAI
+SELECT *
+FROM LenskartCustomer
+WHERE Address = 'Chennai';
+
+3.4 RETRIEVE ORDERS WITH CUSTOMER INFORMATION
+SELECT O.Order_ID, C.Customer_Name, O.Order_Date,
+       O.Total_Amount, O.Order_Status
+FROM LenskartOrder O
+JOIN LenskartCustomer C
+ON O.Customer_ID = C.Customer_ID;
+
+3.5 RETRIEVE PRODUCTS WITH SELLER INFORMATION
+SELECT P.Product_Name, S.Seller_Name, S.Address
+FROM LenskartProduct P
+JOIN LenskartInventory I
+ON P.Product_ID = I.Product_ID
+JOIN LenskartSeller S
+ON I.Seller_ID = S.Seller_ID;
+
+TASK 4: APPLY FILTERING CONDITIONS
+ 4.1 FILTER ORDERS BY AMOUNT
+SELECT *
+FROM LenskartOrder
+WHERE Total_Amount > 2000;
+
+4.2 FILTER ORDERS BY STATUS
+SELECT *
+FROM LenskartOrder
+WHERE Order_Status = 'Confirmed';
+
+4.3 SEARCH CUSTOMERS BY NAME
+SELECT *
+FROM LenskartCustomer
+WHERE Customer_Name LIKE 'A%';
+
+4.4 FILTER PRODUCTS BY PRICE RANGE
+SELECT *
+FROM LenskartProduct
+WHERE Price BETWEEN 1000 AND 1800;
+
+4.5 DISPLAY ORDERS THAT ARE NOT DELIVERED
+SELECT *
+FROM LenskartOrder
+WHERE Order_Status <> 'Delivered';
+
+TASK 5: GENERATE BASIC BUSINESS REPORT
+
+5.1 TOTAL NUMBER OF PRODUCTS
+SELECT COUNT(*) AS Total_Products
+FROM LenskartProduct;
+
+5.2 TOTAL NUMBER OF CUSTOMERS
+SELECT COUNT(*) AS Total_Customers
+FROM LenskartCustomer;
+
+5.3 TOTAL NUMBER OF ORDERS
+SELECT COUNT(*) AS Total_Orders
+FROM LenskartOrder;
+
+5.4 CALCULATE TOTAL SALES AMOUNT
+SELECT SUM(Total_Amount) AS Total_Sales
+FROM LenskartOrder;
+
+5.5 COUNT ORDERS BY STATUS
+SELECT Order_Status, COUNT(*) AS Total_Orders
+FROM LenskartOrder
+GROUP BY Order_Status;
+
+5.6 CALCULATE AVERAGE PRODUCT PRICE
+SELECT ROUND(AVG(Price), 2) AS Average_Price
+FROM LenskartProduct;
+
+PROMPT 5.7 IDENTIFY THE HIGHEST-PRICED PRODUCT
+SELECT Product_Name, Price
+FROM LenskartProduct
+WHERE Price = (SELECT MAX(Price) FROM LenskartProduct);
+
+5.8 DISPLAY PRODUCTS CURRENTLY IN STOCK
+SELECT P.Product_Name, I.Stock_Quantity
+FROM LenskartProduct P
+JOIN LenskartInventory I
+ON P.Product_ID = I.Product_ID
+WHERE I.Stock_Quantity > 0;
+
+5.9 CALCULATE TOTAL AMOUNT BY ORDER STATUS
+SELECT Order_Status, SUM(Total_Amount) AS Total_Amount
+FROM LenskartOrder
+GROUP BY Order_Status
+ORDER BY Total_Amount DESC;
